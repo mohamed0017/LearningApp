@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="teams">
+        <item>"اختر السنة  الدراسية "</item>
+        <item>"الصف الاول الثانوي "</item>
+        <item>"الصف الثاني الثانوي "</item>
+        <item>"الصف الثالث الثانوي "</item>
+    </string-array>
+
+    <string-array name="terms">
+        <item>"اختر الترم   "</item>
+        <item>"  الترم الاول "</item>
+        <item>" الترم الثاني "</item>
+    </string-array>
+</resources>

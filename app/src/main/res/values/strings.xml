@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Learning App</string>
+    <string name="register">تسجيل دخول</string>
+    <string name="name">الاسم</string>
+    <string name="phone">رقم الهاتف</string>
+    <string name="pass">كلمة السر</string>
+    <string name="resetPass">نسيت كلمة السر ؟</string>
+    <string name="goToRegister">ليس لديك حساب . تسجيل حساب جديد ؟</string>
+    <string name="not_active_user_message">"حسابك غير مفعل ! فعل حسابك لتتمكن من مشاهدة شرح الدروس والتفاعل مع الاستاذ  للتفعيل اتصل علي او من خلال الواتس اب "</string>
+    <string name="email">البريد الالكتروني   (اختياري)</string>
+    <string name="new_account">تسجيل حساب جديد</string>
+    <string name="required">مطلوب</string>
+    <string name="lesson_name"> ادخل اسم الدرس </string>
+    <string name="url"> ادخل لينك الفيديو </string>
+    <string name="pdf"> ادخل لينك ملف ال  pdf</string>
+    <string name="save"> حفظ </string>
+    <string name="add_new_lesson"> اضف درس جديد </string>
+    <string name="login">  تسجيل دخول </string>
+    <string name="lessons">الدروس</string>
+</resources>
