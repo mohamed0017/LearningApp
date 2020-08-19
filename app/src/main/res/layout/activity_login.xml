@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="rtl"
-    android:background="@color/white">
+     android:background="@color/white">
 
     <ImageView
         android:id="@+id/loginLogo"
-        android:layout_width="@dimen/d80"
-        android:layout_height="@dimen/d80"
+        android:layout_width="@dimen/d150"
+        android:layout_height="@dimen/d150"
         android:src="@drawable/app_icon"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="8dp"
@@ -28,7 +28,7 @@
         android:padding="@dimen/d4"
         app:hintAnimationEnabled="true"
         app:hintEnabled="true"
-        android:layout_marginTop="@dimen/d30"
+        android:layout_marginTop="@dimen/d50"
         android:layout_marginEnd="@dimen/d8"
         android:layout_marginStart="@dimen/d8"
         app:layout_constraintTop_toBottomOf="@+id/loginLogo">
@@ -40,7 +40,7 @@
             android:background="@android:color/transparent"
             android:inputType="phone"
             android:padding="@dimen/d4"
-            android:textSize="@dimen/s12"/>
+            android:textSize="@dimen/s16"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -62,7 +62,7 @@
             android:background="@android:color/transparent"
             android:inputType="textPassword"
             android:padding="@dimen/d4"
-            android:textSize="@dimen/s12"/>
+            android:textSize="@dimen/s16"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -74,6 +74,7 @@
         app:layout_constraintTop_toBottomOf="@id/password"
         android:textColor="@color/white"
         android:textSize="@dimen/s16"
+        android:textStyle="bold"
         android:text="@string/register"/>
 
     <ProgressBar
@@ -90,7 +91,7 @@
         android:id="@+id/resetPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/s12"
+        android:textSize="@dimen/s14"
         android:text="@string/resetPass"
         android:layout_marginStart="@dimen/d30"
         android:layout_marginEnd="@dimen/d30"
@@ -103,7 +104,7 @@
         android:id="@+id/loginRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/s16"
+        android:textSize="@dimen/s14"
         android:text="@string/goToRegister"
         android:layout_marginStart="@dimen/d30"
         android:layout_marginEnd="@dimen/d30"

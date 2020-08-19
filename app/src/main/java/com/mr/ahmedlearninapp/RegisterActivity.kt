@@ -120,5 +120,10 @@ class RegisterActivity : AppCompatActivity() {
     val password: String = "",
     val team: Int = 0,
     val type: String = "client",
-    val activationDate: String = ""
+    val expiryAt: String = "",
+    val deviceId: String = "",
+    val day: Int = 0,
+    val month: Int = 0,
+    val year: Int = 0,
+    val time : Long = 0
 )

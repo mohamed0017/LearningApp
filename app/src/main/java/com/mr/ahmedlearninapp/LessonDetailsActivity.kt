@@ -1,6 +1,7 @@
 package com.mr.ahmedlearninapp
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
@@ -16,6 +17,8 @@ class LessonDetailsActivity : YouTubeBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
+
         setContentView(R.layout.activity_lesson_details)
 
         val videoId = intent?.getStringExtra(URL_VIDEO)?.substringAfter("be/")

@@ -25,9 +25,10 @@
         android:background="@color/white">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher_round"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/app_icon"
+            android:layout_marginTop="@dimen/d50"
             android:layout_above="@+id/message"
             android:layout_marginBottom="@dimen/d80"
             android:layout_centerHorizontal="true"/>
@@ -43,5 +44,48 @@
             android:layout_margin="@dimen/d8"
             android:textSize="@dimen/s20"
             android:textColor="@color/colorAccent"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/message"
+            android:layout_marginTop="@dimen/d30"
+            android:layout_centerHorizontal="true"
+            >
+            <ImageView
+                android:id="@+id/whats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_whatsapp"
+                android:layout_marginEnd="@dimen/d24"
+               />
+
+            <ImageView
+                android:id="@+id/call"
+                android:layout_width="@dimen/d30"
+                android:layout_height="@dimen/d30"
+                android:src="@drawable/call" />
+        </LinearLayout>
+
     </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_lesson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/d20"/>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

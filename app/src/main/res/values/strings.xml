@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Learning App</string>
+    <string name="app_name">  القمة في الرياضيات</string>
     <string name="register">تسجيل دخول</string>
     <string name="name">الاسم</string>
     <string name="phone">رقم الهاتف</string>
@@ -17,4 +17,16 @@
     <string name="add_new_lesson"> اضف درس جديد </string>
     <string name="login">  تسجيل دخول </string>
     <string name="lessons">الدروس</string>
+    <string name="lessons_first"> "دروس الصف الاول الثانوي"</string>
+    <string name="lessons_secound">"دروس الصف الثاني الثانوي"</string>
+    <string name="lessons_thired"> "دروس الصف الثالث الثانوي"</string>
+    <string name="have_account"> لديك حساب </string>
+    <string name="search"> بحث عن طالب </string>
+    <string name="activation" > تفعيل  الحساب</string>
+    <string name="resetDevice" > اعاده تعيين جهاز جديد  </string>
+    <string name="resetPassword" > اعاده تعيين كلمة السر  </string>
+    <string name="expiry_date" >  تاريخ انتهاء الاشتراك :  </string>
+    <string name="status" > حالة الحساب</string>
+    <string name="error" > حدث خطا حاول مرة اخري !!</string>
+    <string name="update_success" >  تم تعديل البيانات بنجاح </string>
 </resources>

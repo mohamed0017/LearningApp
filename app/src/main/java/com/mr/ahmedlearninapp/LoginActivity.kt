@@ -27,10 +27,19 @@ class LoginActivity : AppCompatActivity() {
 
         loginBut.setOnClickListener {
 
-            loginProgress.visibility = View.VISIBLE
-            loginBut.visibility = View.INVISIBLE
             val phone = loginPhone.text.toString()
             val pass = loginPass.text.toString()
+
+            if (phone.isEmpty()) {
+                loginPhone.error = getString(R.string.required)
+                return@setOnClickListener
+            } else if (pass.isEmpty()) {
+                loginPass.error = getString(R.string.required)
+                return@setOnClickListener
+            }
+
+            loginProgress.visibility = View.VISIBLE
+            loginBut.visibility = View.INVISIBLE
 
             database.reference.child("users").child(phone)
                 .addListenerForSingleValueEvent(object :
@@ -47,14 +56,30 @@ class LoginActivity : AppCompatActivity() {
                         val value = snapshot.getValue(User::class.java)
                         if (value != null && value.password == pass) {
                             sharedPreferences.edit().apply {
-                                putString(USER_PHONE,value.phone)
-                                putString(USER_NAME,value.name)
-                                putInt(TEAM,value.team)
-                                putString(TYPE,value.type)
+                                putString(USER_PHONE, value.phone)
+                                putString(USER_NAME, value.name)
+                                putInt(TEAM, value.team)
+                                putString(TYPE, value.type)
                                 apply()
                             }
-                            startActivity(Intent(this@LoginActivity, AddLessonActivity::class.java))
-                            finish()
+                            if (value.type == "admin") {
+                                startActivity(
+                                    Intent(
+                                        this@LoginActivity,
+                                        AdminMainActivity::class.java
+                                    )
+                                )
+                                finish()
+                            } else {
+                                startActivity(
+                                    Intent(
+                                        this@LoginActivity,
+                                        LessonsActivity::class.java
+                                    )
+                                )
+                                finish()
+                            }
+
                         } else {
                             Toast.makeText(
                                 this@LoginActivity,

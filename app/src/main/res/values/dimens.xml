@@ -21,4 +21,10 @@
     <dimen name="s18">18sp</dimen>
     <dimen name="d20">20dp</dimen>
     <dimen name="s24">24sp</dimen>
+    <dimen name="d40" >40dp</dimen>
+    <dimen name="d100">100dp</dimen>
+    <dimen name="d120">120dp</dimen>
+    <dimen name="d140">140dp</dimen>
+    <dimen name="d150">150dp</dimen>
+    <dimen name="d24">24dp</dimen>
 </resources>

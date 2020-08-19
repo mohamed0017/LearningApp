@@ -71,12 +71,17 @@ class AddLessonActivity : AppCompatActivity() {
         lesson: Lesson
     ) {
 
-        database.reference.child("lessons").child(getId()).setValue(lesson).addOnCompleteListener {
+        database.reference.child("lessons").child(intent.getStringExtra("listSize") ?: getId()).setValue(lesson).addOnCompleteListener {
             saveProgress.visibility = View.GONE
             saveBut.visibility = View.VISIBLE
 
             it.addOnSuccessListener {
-
+                Toast.makeText(
+                    this,
+                    "تم اضافة الدرس بنجاح",
+                    Toast.LENGTH_SHORT
+                ).show()
+                onBackPressed()
             }
 
             it.addOnFailureListener {
