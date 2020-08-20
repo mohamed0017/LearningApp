@@ -92,9 +92,11 @@ class AddLessonActivity : AppCompatActivity() {
 }
 
 data class Lesson(
+    val id: Int = 0,
     val name: String = "",
     val url: String = "",
     val pdf: String  = "",
+    val examUrl: String  = "",
     val team: Int  = 0,
     val term: Int  = 0
 )

@@ -23,43 +23,6 @@ class LessonsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val database = Firebase.database
-
-        database.reference.child("phone")
-            .addListenerForSingleValueEvent(object :
-                ValueEventListener {
-                override fun onCancelled(error: DatabaseError) {
-                }
-
-                override fun onDataChange(snapshot: DataSnapshot) {
-                        val number = snapshot.getValue(String::class.java) ?: "+201221596213"
-
-                        whats.setOnClickListener {
-                            try {
-                                val url = "https://api.whatsapp.com/send?phone=$number"
-                                val i = Intent(Intent.ACTION_VIEW)
-                                i.data = Uri.parse(url)
-                                startActivity(i)
-                            } catch (e: Exception) {
-                            }
-
-                        }
-
-                        call.setOnClickListener {
-                            try {
-                                val intent = Intent(Intent.ACTION_DIAL)
-                                intent.data = Uri.parse("tel:$number")
-                                startActivity(intent)
-                            } catch (e: Exception) {
-                            }
-
-                        }
-                    }
-
-            })
-
-
     }
 
     override fun onResume() {
@@ -70,39 +33,6 @@ class LessonsActivity : AppCompatActivity() {
         if (sharedPreferences.getString(TYPE, "client") == "admin") {
             add_lesson.visibility = View.VISIBLE
             getDataForActiveUser(database)
-        } else {
-            progress.visibility = View.VISIBLE
-            database.reference.child("users").child(sharedPreferences.getString(USER_PHONE, "")!!)
-                .addListenerForSingleValueEvent(object :
-                    ValueEventListener {
-                    override fun onCancelled(error: DatabaseError) {
-                        progress.visibility = View.GONE
-                        not_active_view.visibility = View.VISIBLE
-                        rv_lessons.visibility = View.GONE
-                    }
-
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        progress.visibility = View.GONE
-
-                        val value = snapshot.getValue(User::class.java)
-                        if (value != null) {
-                            val calender = Calendar.getInstance()
-                            val oldCalender = Calendar.getInstance()
-                            oldCalender.set(value.year, value.month, value.day)
-                            if (calender.after(oldCalender)) {
-                                not_active_view.visibility = View.VISIBLE
-                                rv_lessons.visibility = View.GONE
-                            } else {
-                                not_active_view.visibility = View.GONE
-                                getDataForActiveUser(database)
-                            }
-                        } else {
-                            not_active_view.visibility = View.VISIBLE
-                            rv_lessons.visibility = View.GONE
-                        }
-                    }
-
-                })
         }
 
     }

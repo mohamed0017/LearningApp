@@ -1,5 +1,6 @@
 package com.mr.ahmedlearninapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -10,35 +11,36 @@ import kotlinx.android.synthetic.main.activity_lesson_details.*
 
  const val API_KEY = "AIzaSyA-Htjc6KZ-itEcfjhylnB944BrkhZycBM"
  const val URL_VIDEO = "video url"
+ const val LESSON_ID = "lesson url"
+ const val URL_PDF = "pdf url"
+ const val URL_EXAM = "exam url"
 
 class LessonDetailsActivity : YouTubeBaseActivity() {
 
-    var mOnInitialisedListener: YouTubePlayer.OnInitializedListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
 
         setContentView(R.layout.activity_lesson_details)
 
         val videoId = intent?.getStringExtra(URL_VIDEO)?.substringAfter("be/")
-        mOnInitialisedListener = object : YouTubePlayer.OnInitializedListener {
-            override fun onInitializationSuccess(
-                provider: YouTubePlayer.Provider,
-                youTubePlayer: YouTubePlayer,
-                b: Boolean
-            ) {
-                youTubePlayer.loadVideo(videoId)
-                youTubePlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.MINIMAL)
-            }
+        val lessonId = intent?.getStringExtra(LESSON_ID)
+        val pdfUrl = intent?.getStringExtra(URL_PDF)
+        val examUrl = intent?.getStringExtra(URL_EXAM)
 
-            override fun onInitializationFailure(
-                provider: YouTubePlayer.Provider,
-                youTubeInitializationResult: YouTubeInitializationResult
-            ) {
-            }
+
+        video.setOnClickListener {
+            val intent = Intent(this, VideoActivity::class.java)
+            intent.putExtra(URL_VIDEO, videoId)
+            startActivity(intent)
         }
 
-        youtubePlay.initialize(API_KEY, mOnInitialisedListener)
+        pdf.setOnClickListener {
+
+        }
+
+        exam.setOnClickListener {
+
+        }
     }
 }

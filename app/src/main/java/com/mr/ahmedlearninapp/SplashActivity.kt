@@ -26,7 +26,7 @@ class SplashActivity : AppCompatActivity() {
                 if (sharedPreferences.getString(TYPE, "") == "admin")
                     startActivity(Intent(this, AdminMainActivity::class.java))
                 else
-                    startActivity(Intent(this, LessonsActivity::class.java))
+                    startActivity(Intent(this, NotActiveUserActivity::class.java))
             }
             finish()
 

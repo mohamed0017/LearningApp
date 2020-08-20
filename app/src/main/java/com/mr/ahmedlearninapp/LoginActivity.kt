@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.text.isDigitsOnly
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -30,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
             val phone = loginPhone.text.toString()
             val pass = loginPass.text.toString()
 
-            if (phone.isEmpty()) {
+            if (phone.length < 10 || !phone.isValidPhone() ) {
                 loginPhone.error = getString(R.string.required)
                 return@setOnClickListener
             } else if (pass.isEmpty()) {
@@ -74,7 +75,7 @@ class LoginActivity : AppCompatActivity() {
                                 startActivity(
                                     Intent(
                                         this@LoginActivity,
-                                        LessonsActivity::class.java
+                                        NotActiveUserActivity::class.java
                                     )
                                 )
                                 finish()

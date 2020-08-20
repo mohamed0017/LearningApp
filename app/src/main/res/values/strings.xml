@@ -22,11 +22,19 @@
     <string name="lessons_thired"> "دروس الصف الثالث الثانوي"</string>
     <string name="have_account"> لديك حساب </string>
     <string name="search"> بحث عن طالب </string>
-    <string name="activation" > تفعيل  الحساب</string>
-    <string name="resetDevice" > اعاده تعيين جهاز جديد  </string>
-    <string name="resetPassword" > اعاده تعيين كلمة السر  </string>
-    <string name="expiry_date" >  تاريخ انتهاء الاشتراك :  </string>
-    <string name="status" > حالة الحساب</string>
-    <string name="error" > حدث خطا حاول مرة اخري !!</string>
-    <string name="update_success" >  تم تعديل البيانات بنجاح </string>
+    <string name="activation"> تفعيل  الحساب</string>
+    <string name="resetDevice"> اعاده تعيين جهاز جديد  </string>
+    <string name="resetPassword"> اعاده تعيين كلمة السر  </string>
+    <string name="expiry_date">  تاريخ انتهاء الاشتراك :  </string>
+    <string name="status"> حالة الحساب</string>
+    <string name="error"> حدث خطا حاول مرة اخري !!</string>
+    <string name="update_success">  تم تعديل البيانات بنجاح </string>
+    <string name="title_activity_student_home">StudentHomeActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tests"> امتحانات</string>
+    <string name="show_exam" >  اختبار علي الدرس</string>
+    <string name="show_pdf" >  عرض الدرس pdf</string>
+    <string name="show_video" >  مشاهدة الدرس </string>
+    <string name="prepareForPreview" />
 </resources>

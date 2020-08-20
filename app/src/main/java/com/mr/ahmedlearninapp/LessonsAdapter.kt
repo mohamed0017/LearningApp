@@ -27,7 +27,10 @@ class LessonsAdapter(private val lessons: List<Lesson>)
 
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, LessonDetailsActivity::class.java)
+            intent.putExtra(LESSON_ID,lessons[position].id)
             intent.putExtra(URL_VIDEO,lessons[position].url)
+            intent.putExtra(URL_PDF,lessons[position].pdf)
+            intent.putExtra(URL_EXAM,lessons[position].examUrl)
             holder.itemView.context.startActivity(intent)
         }
     }

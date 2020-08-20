@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.text.isDigitsOnly
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -37,7 +38,7 @@ class RegisterActivity : AppCompatActivity() {
 
             when {
                 name.isEmpty() -> registerName.error = getString(R.string.required)
-                phone.isEmpty() -> registerPhone.error = getString(R.string.required)
+                phone.length < 10 || !phone.isValidPhone() -> registerPhone.error = getString(R.string.required)
                 pass.isEmpty() -> registerPass.error = getString(R.string.required)
                 team == 0 -> Toast.makeText(
                     this@RegisterActivity,
@@ -102,7 +103,7 @@ class RegisterActivity : AppCompatActivity() {
                     putString(TYPE,user.type)
                     apply()
                 }
-                startActivity(Intent(this, LessonsActivity::class.java))
+                startActivity(Intent(this, NotActiveUserActivity::class.java))
                 finish()
             }
 
