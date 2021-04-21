@@ -2,7 +2,6 @@ package com.mr.ahmedlearninapp
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -11,10 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.mr.ahmedlearninapp.SplashActivity.Companion.database
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 import kotlin.collections.ArrayList
-
 
 class LessonsActivity : AppCompatActivity() {
 
@@ -27,8 +25,6 @@ class LessonsActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-
-        val database = Firebase.database
 
         if (sharedPreferences.getString(TYPE, "client") == "admin") {
             add_lesson.visibility = View.VISIBLE
@@ -60,25 +56,26 @@ class LessonsActivity : AppCompatActivity() {
                 }
 
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    val t: GenericTypeIndicator<ArrayList<Lesson>> =
-                        object : GenericTypeIndicator<ArrayList<Lesson>>() {}
+                    val t: GenericTypeIndicator<HashMap<String, Lesson>> =
+                        object : GenericTypeIndicator<HashMap<String, Lesson>>() {}
 
-                    val lessons = snapshot.getValue(t)
+                    val lessons = snapshot.getValue(t)?.values
                     progress.visibility = View.GONE
 
                     rv_lessons.visibility = View.VISIBLE
-                    if (lessons != null) {
+                    if (!lessons.isNullOrEmpty()) {
                         add_lesson.setOnClickListener {
                             val intent = Intent(this@LessonsActivity, AddLessonActivity::class.java)
-                            intent.putExtra("listSize", lessons.size.toString())
+                            val sortedLessons = lessons.sortedBy { it.id }
+                            intent.putExtra("itemId", (sortedLessons.last().id + 1))
                             startActivity(intent)
                         }
-                        val teamLessons = lessons.filter { it.team == team }
+                        val teamLessons = lessons.filter { it.team == team }.sortedBy { it.id }
                         rv_lessons.adapter = LessonsAdapter(teamLessons)
-                    }else{
+                    } else {
                         add_lesson.setOnClickListener {
                             val intent = Intent(this@LessonsActivity, AddLessonActivity::class.java)
-                            intent.putExtra("listSize",  "0")
+                            intent.putExtra("itemId", "0")
                             startActivity(intent)
                         }
                     }

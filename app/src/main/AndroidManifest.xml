@@ -3,8 +3,16 @@
     package="com.mr.ahmedlearninapp">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@drawable/app_icon"
         android:label="@string/app_name"
@@ -12,14 +20,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".VideoActivity"></activity>
+        <activity android:name=".ui.active_users.ActiveStudentsActivity"></activity>
+        <activity android:name=".EditExamActivity" />
+        <activity android:name=".AddExamActivity" />
+        <activity android:name=".WebViewActivity" />
+        <activity
+            android:name=".VideoActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".NotActiveUserActivity" />
-        <activity android:name=".StudentHomeActivity"></activity>
+        <activity android:name=".StudentHomeActivity" />
         <activity
             android:name=".SearchActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".OnBoardingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RemotePDFActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AdminMainActivity"
@@ -42,6 +60,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".AddLessonActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EditLessonActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".LoginActivity"

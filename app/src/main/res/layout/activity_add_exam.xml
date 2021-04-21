@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:paddingBottom="@dimen/d10"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/d60">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/s24"
+            android:textColor="@color/colorAccent"
+            android:text="@string/add_new_exam"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boarder"
+            android:hint="@string/exam_name"
+            android:padding="@dimen/d4"
+            app:hintAnimationEnabled="true"
+            android:layout_marginTop="@dimen/d30"
+            android:layout_marginStart="@dimen/d12"
+            android:layout_marginEnd="@dimen/d12"
+            android:layout_marginBottom="@dimen/d12"
+            app:hintEnabled="true"
+            app:layout_constraintTop_toBottomOf="@+id/title">
+
+            <EditText
+                android:id="@+id/lesson_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:inputType="text"
+                android:padding="@dimen/d4"
+                android:textSize="@dimen/s18"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/exam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/d12"
+            android:background="@drawable/boarder"
+            android:hint="@string/enter_exam_url"
+            android:padding="@dimen/d4"
+            app:hintAnimationEnabled="true"
+            app:hintEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/name">
+
+            <EditText
+                android:id="@+id/lesson_exam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:inputType="text"
+                android:padding="@dimen/d4"
+                android:textSize="@dimen/s16"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/date_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/d12"
+            android:background="@drawable/boarder"
+            android:hint="@string/add_date"
+            android:padding="@dimen/d4"
+            app:hintAnimationEnabled="true"
+            app:hintEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/exam">
+
+            <EditText
+                android:id="@+id/exam_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:inputType="datetime"
+                android:padding="@dimen/d4"
+                android:textSize="@dimen/s16"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/time_limit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/d12"
+            android:background="@drawable/boarder"
+            android:hint="@string/time_limit"
+            android:padding="@dimen/d4"
+            app:hintAnimationEnabled="true"
+            app:hintEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/date_time">
+
+            <EditText
+                android:id="@+id/exam_time_limit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:inputType="number"
+                android:padding="@dimen/d4"
+                android:textSize="@dimen/s16" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <org.angmarch.views.NiceSpinner
+            android:id="@+id/teamSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/d12"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/time_limit"
+            app:backgroundSelector="@drawable/boarder"/>
+
+        <org.angmarch.views.NiceSpinner
+            android:id="@+id/termSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/d12"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/teamSpinner"
+            app:backgroundSelector="@drawable/boarder"/>
+        <Button
+            android:id="@+id/saveBut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_but"
+            android:layout_margin="@dimen/d50"
+            app:layout_constraintTop_toBottomOf="@id/termSpinner"
+            android:textColor="@color/white"
+            android:textSize="@dimen/s16"
+            android:text="@string/save"/>
+
+        <ProgressBar
+            android:id="@+id/saveProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/d50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/termSpinner"
+            android:visibility="gone"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
@@ -37,6 +38,33 @@ class StudentHomeActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
         actionBar?.hide()
+
+        logout.setOnClickListener {
+            val dialog = AlertDialog.Builder(this)
+            dialog.setCancelable(true)
+            dialog.setTitle(R.string.alert)
+            dialog.setMessage(R.string.log0ut_message)
+            dialog.setPositiveButton(
+                R.string.ok
+            ) { dialog1, which ->
+                dialog1.dismiss()
+                sharedPreferences.edit().apply {
+                    putString(USER_PHONE, "")
+                    putString(USER_NAME, "")
+                    putInt(TEAM, 0)
+                    putString(TYPE, "")
+                    apply()
+                }
+                startActivity(Intent(this, OnBoardingActivity::class.java))
+                finish()
+            }
+            dialog.setNegativeButton(
+                R.string.cancel
+            ) { dialog2, which1 ->
+                dialog2.dismiss()
+            }
+            dialog.show()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

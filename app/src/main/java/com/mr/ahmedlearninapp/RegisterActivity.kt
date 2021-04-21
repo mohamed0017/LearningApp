@@ -14,6 +14,8 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
+import com.mr.ahmedlearninapp.SplashActivity.Companion.database
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
@@ -24,7 +26,6 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         title = getString(R.string.new_account)
-        val database = Firebase.database
 
         val teams = resources.getStringArray(R.array.teams).toMutableList()
         registerTeamSpinner.attachDataSource(teams)
@@ -101,6 +102,7 @@ class RegisterActivity : AppCompatActivity() {
                     putString(USER_NAME,user.name)
                     putInt(TEAM,user.team)
                     putString(TYPE,user.type)
+                    putString(User_PROFILE, Gson().toJson(user))
                     apply()
                 }
                 startActivity(Intent(this, NotActiveUserActivity::class.java))
@@ -126,5 +128,6 @@ class RegisterActivity : AppCompatActivity() {
     val day: Int = 0,
     val month: Int = 0,
     val year: Int = 0,
-    val time : Long = 0
+    val time : Long = 0,
+    val completedExamsIds : List<Int> = emptyList()
 )

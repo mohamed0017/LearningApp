@@ -14,6 +14,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.mr.ahmedlearninapp.SplashActivity.Companion.database
 import kotlinx.android.synthetic.main.activity_splash.*
 import kotlinx.android.synthetic.main.not_active_user_view.*
 import java.util.*
@@ -27,9 +28,36 @@ class NotActiveUserActivity : AppCompatActivity() {
         setContentView(R.layout.not_active_user_view)
 
         supportActionBar?.hide()
-        val database = Firebase.database
-        getPhone(database)
-        checkIfUserActive(database)
+        not_active_view_content.visibility = View.GONE
+        progress.visibility = View.VISIBLE
+
+        database.reference.child("signup_users_direct_to_home")
+            .addListenerForSingleValueEvent(object :
+                ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                    getPhone(database)
+                    checkIfUserActive(database)
+                }
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val result = snapshot.getValue(Boolean::class.java) ?: false
+                    if (result) {
+                        startActivity(
+                            Intent(
+                                this@NotActiveUserActivity,
+                                StudentHomeActivity::class.java
+                            )
+                        )
+                        finishAffinity()
+                    } else {
+                        getPhone(database)
+                        checkIfUserActive(database)
+                    }
+
+                }
+
+            })
+
     }
 
     private fun checkIfUserActive(database: FirebaseDatabase) {
@@ -61,7 +89,7 @@ class NotActiveUserActivity : AppCompatActivity() {
                                     StudentHomeActivity::class.java
                                 )
                             )
-                            finish()
+                            finishAffinity()
                         }
                     } else {
                         supportActionBar?.show()

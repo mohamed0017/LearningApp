@@ -15,6 +15,7 @@
     <string name="pdf"> ادخل لينك ملف ال  pdf</string>
     <string name="save"> حفظ </string>
     <string name="add_new_lesson"> اضف درس جديد </string>
+    <string name="edit_new_lesson"> تعديل درس  </string>
     <string name="login">  تسجيل دخول </string>
     <string name="lessons">الدروس</string>
     <string name="lessons_first"> "دروس الصف الاول الثانوي"</string>
@@ -33,8 +34,23 @@
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="tests"> امتحانات</string>
-    <string name="show_exam" >  اختبار علي الدرس</string>
-    <string name="show_pdf" >  عرض الدرس pdf</string>
-    <string name="show_video" >  مشاهدة الدرس </string>
-    <string name="prepareForPreview" />
+    <string name="show_exam">  اختبار علي الدرس</string>
+    <string name="show_pdf">  عرض الدرس pdf</string>
+    <string name="show_video">  مشاهدة الدرس </string>
+    <string name="prepareForPreview">جاري تجهيز الملف للعرض</string>
+    <string name="ok"> موافق </string>
+    <string name="finish_exam">تم انتهاء الوقت المخصص للامتحان </string>
+    <string name="finish_exam_error"> باقي من وقت الامتحان بعد #@ وسوف يتم غلق الامتحان تلقائيآ. من فضلك اضغط علي ارسال قبل انتهاء الوقت المحدد للامتحان </string>
+    <string name="alert"> تنبيه </string>
+    <string name="enter_exam_url"> ادخل لينك الامتحان </string>
+    <string name="add_new_exam"> اضف امتحان جديد </string>
+    <string name="edit_new_exam"> تعديل امتحان  </string>
+    <string name="exam_name"> اسم الامتحان  </string>
+    <string name="add_date"> اختر التاريخ و الوقت بدآ الامتحان </string>
+    <string name="time_limit">  اختر وقت انتهاء الامتحان  </string>
+    <string name="log0ut_message"> هل تريد تسجيل خروج من التطبيق ? </string>
+    <string name="cancel"> الغاء </string>
+    <string name="must_update">  من فضلك قم بتحديث التطبيق لتتمكن من الاستفادة من التحديثات الجديدة </string>
+    <string name="update"> تحديث </string>
+    <string name="students">الطلاب</string>
 </resources>

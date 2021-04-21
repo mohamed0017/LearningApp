@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.mr.ahmedlearninapp.ui.active_users.ActiveStudentsActivity
 import kotlinx.android.synthetic.main.activity_admin_main.*
 
 class AdminMainActivity : AppCompatActivity() {
@@ -33,11 +34,22 @@ class AdminMainActivity : AppCompatActivity() {
             val intent = Intent(this, SearchActivity::class.java)
             startActivity(intent)
         }
+
+        add_exam.setOnClickListener {
+            val intent = Intent(this, AddExamActivity::class.java)
+            startActivity(intent)
+        }
+
+        users.setOnClickListener {
+            val intent = Intent(this, ActiveStudentsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
-    private fun openLessons(team : Int){
-        val intent = Intent(this, LessonsActivity::class.java)
-        intent.putExtra(TEAM , team)
+    private fun openLessons(team: Int) {
+        sharedPreferences?.edit()?.putInt(TEAM, team)?.apply()
+        val intent = Intent(this, StudentHomeActivity::class.java)
+        intent.putExtra(TEAM, team)
         startActivity(intent)
     }
 
@@ -49,6 +61,7 @@ class AdminMainActivity : AppCompatActivity() {
         // return true so that the menu pop up is opened
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.logout -> {

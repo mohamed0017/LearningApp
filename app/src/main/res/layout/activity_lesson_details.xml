@@ -42,4 +42,16 @@
         android:textColor="@color/black"
         android:padding="@dimen/d16"
         android:layout_below="@id/pdf"/>
+
+    <TextView
+        android:id="@+id/edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boarder"
+        android:layout_margin="@dimen/d16"
+        android:text="@string/edit_new_lesson"
+        android:textSize="@dimen/s18"
+        android:textColor="@color/black"
+        android:padding="@dimen/d16"
+        android:layout_below="@id/exam"/>
 </RelativeLayout>

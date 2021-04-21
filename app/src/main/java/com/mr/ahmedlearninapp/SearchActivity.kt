@@ -11,6 +11,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.mr.ahmedlearninapp.SplashActivity.Companion.database
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.activity_search.name
@@ -42,7 +43,6 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun searchForUser(text: String) {
-        val database = Firebase.database
         database.reference.child("users").child(text)
             .addListenerForSingleValueEvent(object :
                 ValueEventListener {
@@ -82,7 +82,6 @@ class SearchActivity : AppCompatActivity() {
                                     Calendar.YEAR
                                 )}"
                             updateUser(
-                                database,
                                 value.copy(
                                     expiryAt = today,
                                     day = calender.get(Calendar.DAY_OF_MONTH),
@@ -93,11 +92,11 @@ class SearchActivity : AppCompatActivity() {
                         }
 
                         resetDevice.setOnClickListener {
-                            updateUser(database, value.copy(deviceId = ""))
+                            updateUser( value.copy(deviceId = ""))
                         }
 
                         resetPassword.setOnClickListener {
-                            updateUser(database, value.copy(password = ""))
+                            updateUser(value.copy(password = ""))
 
                         }
                     }
@@ -107,7 +106,6 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun updateUser(
-        database: FirebaseDatabase,
         user: User
     ) {
         database.reference.child("users").child(user.phone).setValue(user).addOnCompleteListener {
